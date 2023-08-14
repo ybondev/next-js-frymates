@@ -6,7 +6,7 @@ const Home = () => {
     <section className="container-fluid home_section">
       <div className="video_container">
         <video
-          src="./assets/Frymates NFT - Web3 Detective Agency.mp4"
+          src="./Frymates NFT - Web3 Detective Agency - Trim.mp4"
           datatype="mp4"
           loop
           muted
