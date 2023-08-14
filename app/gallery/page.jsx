@@ -25,7 +25,7 @@ const page = () => {
           <div className="col-md-3">
             <div className="img_container">
               <Image
-                src="/assets/1.png"
+                src="./assets/1.png"
                 width={1000}
                 height={1000}
                 className="img-fluid"
@@ -38,7 +38,7 @@ const page = () => {
           <div className="col-md-3">
             <div className="img_container">
               <Image
-                src="/assets/4.png"
+                src="./assets/4.png"
                 width={1000}
                 height={1000}
                 className="img-fluid"
@@ -51,7 +51,7 @@ const page = () => {
           <div className="col-md-3">
             <div className="img_container">
               <Image
-                src="/assets/3.png"
+                src="./assets/3.png"
                 width={1000}
                 height={1000}
                 className="img-fluid"

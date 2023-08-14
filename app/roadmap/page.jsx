@@ -30,7 +30,7 @@ const page = () => {
           <div className="col-md-6">
             <div className="card_container">
               <Image
-                src="/assets/3.png"
+                src="./assets/3.png"
                 width={1000}
                 height={1000}
                 className="img-fluid"
