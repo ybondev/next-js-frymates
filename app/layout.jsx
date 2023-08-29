@@ -5,7 +5,7 @@ import "@styles/globals.css";
 import Nav from "@components/Nav";
 
 export const metadata = {
-  title: "Frymates",
+  title: "Frymates NFT | Web3 Detective Agency",
   description: "",
 };
 

@@ -1,14 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 :root {
   --primary-bg: #121212;
   --text-color: #f5f5f5;
+  --accent-color: coral;
+  background: var(--primary-bg);
 }
 
 h1,
@@ -35,20 +39,22 @@ section {
 /* NAVBAR */
 .nav_fluid {
   background: transparent;
-  /* position: absolute; */
 }
 
 .nav_fluid .container {
   padding: 0;
 }
 
+.navbar_bg {
+  background: var(--primary-bg);
+}
+
 .navbar .logo {
   font-size: 1rem;
   text-transform: uppercase;
-  background: brown;
-  padding: 10px;
+  background: var(--accent-color);
+  padding: 5px 10px;
   font-weight: 700;
-  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -71,6 +77,7 @@ section {
   padding-top: 70px;
   transition: all 0.3s ease-in-out;
   margin: auto 0;
+  z-index: 2;
 }
 
 .navbar .nav_link {
@@ -78,10 +85,31 @@ section {
   text-decoration: none;
   margin-right: 1rem;
   text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 0;
+  font-weight: 700;
+}
+
+.navbar .nav_link:hover {
+  color: var(--accent-color);
 }
 
 .navbar .nav_link:last-child {
   margin-right: 0;
+}
+
+.navbar .nav_link_connect .btn_connect {
+  width: 100%;
+  max-width: 200px;
+}
+
+.navbar .nav_link_connect .btn_connect button {
+  background: var(--accent-color);
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  padding: 5px 10px;
 }
 
 #check_btn {
@@ -103,14 +131,11 @@ input[type="checkbox"]:checked ~ .navbar ul {
 }
 
 /* HOME */
-.container-fluid.home_section {
+.home_section .video_container {
   position: absolute;
   top: 0;
-  padding: 0;
-}
-
-.home_section .video_container {
-  position: relative;
+  left: 0;
+  width: 100%;
 }
 
 .home_section video {
@@ -140,138 +165,248 @@ input[type="checkbox"]:checked ~ .navbar ul {
   );
 }
 
-.home_section .decs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
+.home_section .container {
+  position: relative;
   color: var(--text-color);
 }
 
-.home_section .decs h1 {
-  font-size: clamp(1.5rem, 1rem + 2.2222vw, 3rem);
+.home_section .container .row {
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+.home_section .desc h1 {
+  font-size: 2rem;
   font-weight: 700;
+}
+
+.home_section .desc p {
+  font-weight: 300;
 }
 
 .home_section .btn_container {
-  margin-top: 1rem;
+  width: 100%;
 }
 
-.home_section .btn_container .link_mint {
-  margin-right: 1rem;
-  background: brown;
-  text-decoration: none;
-  text-transform: uppercase;
+.home_section .btn_container .link_mint button {
+  margin-right: 0.5rem;
+  background: var(--accent-color);
   color: var(--text-color);
-  padding: 10px;
+  text-decoration: none;
   font-weight: 500;
+  padding: 10px;
+  border: none;
+  width: 130px;
+  text-transform: uppercase;
 }
 
-.home_section .btn_container .link_explore {
+.home_section .btn_container .link_explore button {
   margin-right: 1rem;
   background: var(--text-color);
-  text-decoration: none;
-  text-transform: uppercase;
   color: var(--primary-bg);
-  padding: 10px;
+  text-decoration: none;
   font-weight: 500;
+  padding: 10px;
+  border: none;
+  width: 130px;
+  text-transform: uppercase;
 }
 
-/* MANIFESTO */
-.manifesto_section .row h1 {
+/* GALLERY */
+.gallery_section {
+  background: var(--primary-bg);
+  color: var(--text-color);
+}
+
+.gallery_section h1 {
+  font-size: clamp(1.6rem, 1.4667rem + 0.5926vw, 2rem);
   text-transform: uppercase;
-  font-size: clamp(2rem, 1.3333rem + 2.963vw, 4rem);
   font-weight: 700;
+}
+
+.gallery_section h1 span {
+  color: var(--accent-color);
+}
+
+.gallery_section .filter_container h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.gallery_section .filter_container .main {
+  padding-left: 0;
   position: relative;
 }
 
-.manifesto_section .row h1 span {
-  color: darkgray;
+.gallery_section .filter_container .main li {
+  list-style: none;
+  line-height: 50px;
+  cursor: pointer;
 }
 
-.manifesto_section .row hr {
-  margin-top: 1rem;
-  border-width: 5px;
+.gallery_section .filter_container .main li .fa_icon {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
 }
 
-.manifesto_section .desc {
-  margin-top: 1rem;
+.gallery_section .filter_container .li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.manifesto_section .btn_read {
-  padding-top: 1rem;
+.gallery_section .filter_container .sub_menu {
+  display: none;
 }
 
-.manifesto_section .btn_read .link_read {
-  text-decoration: none;
-  background: brown;
-  color: var(--text-color);
-  padding: 10px;
-  font-weight: 500;
+.gallery_section .filter_container .show {
+  display: block;
+}
+
+.gallery_section .img_container .img-fluid {
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+}
+
+.gallery_section .img_title span {
   text-transform: uppercase;
 }
 
 /* ROADMAP */
-.roadmap_section .desc h1 {
-  padding-bottom: 1rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: clamp(1.8rem, 1.0667rem + 3.2593vw, 4rem);
-}
-
-.roadmap_section .card_container .img-fluid {
-  width: 100%;
-  max-width: 400px;
-}
-
-.roadmap_section .card_text {
+.roadmap_section {
   background: var(--primary-bg);
   color: var(--text-color);
-  padding: 10px;
-  box-shadow: 5px 5px darkgray;
-  height: 100%;
+}
+
+.roadmap_section .desc h1 {
+  font-size: clamp(1.6rem, 1.4667rem + 0.5926vw, 2rem);
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .roadmap_section .desc h1 span {
-  color: brown;
+  color: var(--accent-color);
 }
 
-.roadmap_section .col-md-6 {
+.roadmap_section .bx {
+  background: #151515;
+  padding: 30px;
+  height: 100%;
+  min-height: 200px;
   position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
-/* GALLERY */
-.gallery_section .row h1 {
+.roadmap_section .bx:hover {
+  box-shadow: 0 0 5px var(--accent-color);
+}
+
+.roadmap_section .bx h1 {
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 700;
-  padding-bottom: 1rem;
+  color: var(--accent-color);
 }
 
-.gallery_section .form-control:focus {
-  box-shadow: none;
+.roadmap_section .bx p {
+  font-weight: 300;
 }
 
-.gallery_section .row h1 span {
-  color: brown;
+.roadmap_section .bx .fa_icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 20px;
 }
 
-.gallery_section .img_container {
-  background: #f5f5f5;
+/* MANIESTO */
+.manifesto_section {
+  background: var(--primary-bg);
+  color: var(--text-color);
+}
+
+.manifesto_section .row {
+  align-items: center;
+}
+
+.manifesto_section .img_container {
+  display: none;
+}
+
+.manifesto_section .desc h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.4667rem + 0.5926vw, 2rem);
+}
+
+.manifesto_section .desc h1 span {
+  color: var(--accent-color);
+}
+
+.manifesto_section .link_read {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.manifesto_section .link_read span {
+  color: var(--accent-color);
+}
+
+/* MINT */
+.mint_section {
+  background: var(--primary-bg);
+  color: var(--text-color);
+}
+
+.mint_section .row {
+  align-items: center;
+}
+
+.mint_section h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.mint_section p {
+  font-weight: 300;
+}
+
+.mint_section p span {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.quantity_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quantity_container .fa_icon {
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.quantity_container .number {
+  font-weight: 700;
+}
+
+.quantity_container button {
+  border: none;
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-weight: 700;
   padding: 10px;
+  width: 100%;
+  max-width: 200px;
+  text-transform: uppercase;
 }
 
-.gallery_section .img_title {
-  color: darkgray;
-  padding-top: 0.5rem;
-}
-
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   section {
     padding: 100px 0;
   }
@@ -297,7 +432,21 @@ input[type="checkbox"]:checked ~ .navbar ul {
   }
 
   /* HOME */
-  .home_section .center_col h1 {
+  .home_section .desc h1 {
     font-size: 3rem;
+  }
+
+  .home_section .btn_container .link_mint button {
+    margin-right: 1rem;
+    width: 300px;
+  }
+
+  .home_section .btn_container .link_explore button {
+    width: 200px;
+  }
+
+  /* MANIFESTO */
+  .manifesto_section .img_container {
+    display: block;
   }
 }

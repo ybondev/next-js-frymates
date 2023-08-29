@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Data from "../json/data.json";
 
 const page = () => {
   return (
@@ -15,52 +16,28 @@ const page = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Search here..."
+                placeholder="Search by name or trait..."
               />
             </div>
           </div>
-          <div className="col-md-3">
-            <div className="filter_container">filter</div>
-          </div>
-          <div className="col-md-3">
-            <div className="img_container">
-              <Image
-                src="./assets/1.png"
-                width={1000}
-                height={1000}
-                className="img-fluid"
-              ></Image>
-            </div>
-            <div className="img_title">
-              <h1>frymates #1</h1>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="img_container">
-              <Image
-                src="./assets/4.png"
-                width={1000}
-                height={1000}
-                className="img-fluid"
-              ></Image>
-            </div>
-            <div className="img_title">
-              <h1>frymates #2</h1>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="img_container">
-              <Image
-                src="./assets/3.png"
-                width={1000}
-                height={1000}
-                className="img-fluid"
-              ></Image>
-            </div>
-            <div className="img_title">
-              <h1>frymates #3</h1>
-            </div>
-          </div>
+          {Data.map((x) => {
+            return (
+              <div className="col-md-4 col-6 col-lg-3" key={x.id}>
+                <div className="img_container">
+                  <Image
+                    src={`./${x.img}`}
+                    width={500}
+                    height={0}
+                    alt=""
+                    className="img-fluid"
+                  />
+                </div>
+                <div className="img_title mt-3">
+                  <span>{x.name}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

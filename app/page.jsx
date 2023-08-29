@@ -18,18 +18,22 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <div className="decs">
+            <div className="desc">
               <h1>
                 Un-degen your trading.
                 <br />
                 Make data-driven decisions.
               </h1>
+              <p>
+                Get exclusive access to data-analytics tool and internal
+                resources <br /> for a better, safer web3 trading.
+              </p>
               <div className="btn_container">
-                <Link href="" className="link_mint">
-                  public mint open
+                <Link href="/mint" className="link_mint">
+                  <button>mint</button>
                 </Link>
                 <Link href="" className="link_explore">
-                  explore
+                  <button>explore</button>
                 </Link>
               </div>
             </div>
