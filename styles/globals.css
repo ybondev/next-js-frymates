@@ -79,6 +79,7 @@ section {
 .navbar .logo .logo_text {
   text-decoration: none;
   color: var(--text-color);
+  z-index: 2;
 }
 
 .navbar ul {
