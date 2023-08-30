@@ -43,7 +43,7 @@ const Nav = () => {
   useEffect(() => {
     setInterval(() => {
       CHECK_PATH();
-    }, 100);
+    }, 1);
 
     CONNECT();
   }, [pathname]);

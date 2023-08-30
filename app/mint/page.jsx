@@ -1,5 +1,5 @@
 "use client";
-import Web3 from "web3";
+import Web3, { eth } from "web3";
 
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -8,21 +8,56 @@ import Image from "next/image";
 const Mint = () => {
   const [account, setAccount] = useState(null);
   const [mintAmount, setMintAmount] = useState(1);
+  const [costEth, setTotalEth] = useState(0.08);
 
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
-    if (newMintAmount < 1) {
+    if (newMintAmount <= 1) {
       newMintAmount = 1;
     }
     setMintAmount(newMintAmount);
+    let newCostEth;
+    if (newMintAmount === 1) {
+      newCostEth = 0.08;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 2) {
+      newCostEth = 0.16;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 3) {
+      newCostEth = 0.24;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 4) {
+      newCostEth = 0.32;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 5) {
+      newCostEth = 0.4;
+      setTotalEth(newCostEth);
+    }
   };
 
-  const incrementMintAmount = () => {
+  const incrementMintAmount = async () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    if (newMintAmount > 5) {
+      newMintAmount = 5;
     }
     setMintAmount(newMintAmount);
+    let newCostEth;
+    if (newMintAmount === 1) {
+      newCostEth = 0.08;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 2) {
+      newCostEth = 0.16;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 3) {
+      newCostEth = 0.24;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 4) {
+      newCostEth = 0.32;
+      setTotalEth(newCostEth);
+    } else if (newMintAmount === 5) {
+      newCostEth = 0.4;
+      setTotalEth(newCostEth);
+    }
   };
 
   let contract;
@@ -458,9 +493,11 @@ const Mint = () => {
       let convertedCostWei = Number(costWei);
       let totalGasLimit = gasLimit * mintAmount;
       let totalCostWei = convertedCostWei * mintAmount;
+      let convertedCostEth = convertedCostWei / 10 ** 18;
 
       console.log(totalGasLimit);
-      console.log(totalCostWei);
+      console.log(convertedCostWei);
+      console.log(convertedCostEth);
 
       try {
         contract.methods
@@ -489,7 +526,7 @@ const Mint = () => {
   return (
     <section className="container-fluid mint_section">
       <div className="container">
-        <div className="row">
+        <div className="row gy-3">
           <div className="col-md-6">
             <h1>Get Ready to Mint Awesome NFTs</h1>
             <p>
@@ -522,9 +559,7 @@ const Mint = () => {
           <div className="col-md-6">
             <div className="right_col">
               <Image
-                src={
-                  "https://media4.giphy.com/media/ho0xXatV7b3Fo1ZRXN/giphy.gif"
-                }
+                src={"./assets/frymates.gif"}
                 width={500}
                 height={0}
                 alt=""
