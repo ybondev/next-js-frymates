@@ -50,9 +50,7 @@ const Nav = () => {
 
   return (
     <div
-      className={
-        pathname === true ? "navbar_bg" : "container-fluid nav_fluid sticky-top"
-      }
+      className={pathname === true ? "navbar_bg" : "container-fluid nav_fluid"}
     >
       <div className="container">
         <input type="checkbox" id="check_btn" />

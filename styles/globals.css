@@ -74,12 +74,12 @@ section {
   padding: 5px 10px;
   font-weight: 700;
   cursor: pointer;
+  z-index: 2;
 }
 
 .navbar .logo .logo_text {
   text-decoration: none;
   color: var(--text-color);
-  z-index: 2;
 }
 
 .navbar ul {
