@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Data from "../json/data.json";
 import Link from "next/link";
