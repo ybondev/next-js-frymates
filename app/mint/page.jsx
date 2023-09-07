@@ -60,10 +60,10 @@ const Mint = () => {
           value: Number(cost) * mintAmount, // send 0.1 ether with the contract call
         }
       );
-      toast.success("contract call successs", data);
+      toast.success("Minted Successfully!", data);
       setClaiming(false);
     } catch (err) {
-      toast.error("contract call failure", err);
+      toast.error("Contract call failure!", err);
       setClaiming(false);
     }
   };

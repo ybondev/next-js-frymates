@@ -296,10 +296,6 @@ input[type="checkbox"]:checked ~ .navbar ul {
   transform: translateY(-5px);
 }
 
-.claiming {
-  background: #121212;
-}
-
 /* ROADMAP */
 .roadmap_section {
   background: var(--primary-bg);
