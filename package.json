@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@thirdweb-dev/react": "^3.14.40",
     "bootstrap": "^5.3.1",
     "next": "13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
     "swr": "^2.2.1",
     "web3": "^4.1.1"

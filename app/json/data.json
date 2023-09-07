@@ -2,56 +2,37 @@
   {
     "id": 1,
     "img": "/img/1.avif",
-    "name": "frymates #10"
+    "name": "frymates #27",
+    "url": "https://opensea.io/assets/ethereum/0x24305effbf3506b826f904c9e0017b9a247f8a97/27"
   },
   {
     "id": 2,
     "img": "/img/2.avif",
-    "name": "frymates #11"
+    "name": "frymates #38",
+    "url": "https://opensea.io/assets/ethereum/0x24305effbf3506b826f904c9e0017b9a247f8a97/38"
   },
   {
     "id": 3,
     "img": "/img/3.avif",
-    "name": "frymates #12"
+    "name": "frymates #85",
+    "url": "https://opensea.io/assets/ethereum/0x24305effbf3506b826f904c9e0017b9a247f8a97/85"
   },
   {
     "id": 4,
     "img": "/img/4.avif",
-    "name": "frymates #13"
+    "name": "frymates #75",
+    "url": "https://opensea.io/assets/ethereum/0x24305effbf3506b826f904c9e0017b9a247f8a97/75"
   },
   {
     "id": 5,
     "img": "/img/5.avif",
-    "name": "frymates #14"
+    "name": "frymates #5",
+    "url": "https://opensea.io/assets/ethereum/0x24305effbf3506b826f904c9e0017b9a247f8a97/5"
   },
   {
     "id": 6,
     "img": "/img/6.avif",
-    "name": "frymates #15"
-  },
-  {
-    "id": 7,
-    "img": "/img/7.avif",
-    "name": "frymates #16"
-  },
-  {
-    "id": 8,
-    "img": "/img/8.avif",
-    "name": "frymates #17"
-  },
-  {
-    "id": 9,
-    "img": "/img/9.avif",
-    "name": "frymates #18"
-  },
-  {
-    "id": 10,
-    "img": "/img/10.avif",
-    "name": "frymates #19"
-  },
-  {
-    "id": 11,
-    "img": "/img/11.avif",
-    "name": "frymates #20"
+    "name": "frymates #70",
+    "url": "https://opensea.io/assets/ethereum/0x24305effbf3506b826f904c9e0017b9a247f8a97/70"
   }
 ]
