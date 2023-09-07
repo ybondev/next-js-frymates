@@ -15,6 +15,9 @@ import { Toaster } from "react-hot-toast";
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
+      <head>
+        <title>Frymates NFT | Web3 Detective Agency</title>
+      </head>
       <body className="main_container">
         <Nav />
         <ThirdwebProvider
