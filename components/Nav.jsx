@@ -2,14 +2,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaDiscord } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
-import Web3 from "web3";
+import { SiOpensea } from "react-icons/si";
+import { useAddress, useMetamask } from "@thirdweb-dev/react";
+import { toast } from "react-hot-toast";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [pathname, setPathName] = useState(false);
-  const [account, setAccount] = useState(null);
+  const address = useAddress();
+  const connectMetamask = useMetamask();
 
   const TOGGLE_MENU = () => {
     if (toggle === false) {
@@ -29,22 +33,10 @@ const Nav = () => {
     }
   };
 
-  async function CONNECT() {
-    if (window.ethereum) {
-      await window.ethereum.request({ method: "eth_accounts" });
-      window.web3 = new Web3(window.ethereum);
-
-      let accounts = await web3.eth.getAccounts();
-      setAccount(accounts[0]);
-    }
-  }
-
   useEffect(() => {
     setInterval(() => {
       CHECK_PATH();
     }, 1);
-
-    CONNECT();
   }, [pathname]);
 
   return (
@@ -72,26 +64,62 @@ const Nav = () => {
             <Link href="/manifesto" className="nav_link">
               manifesto
             </Link>
-            <Link
-              href=""
-              className="nav_link_connect"
-              onClick={() => CONNECT()}
-            >
-              <div className="btn_connect">
-                <button>
-                  <Image
-                    src={"./assets/logos_metamask-icon.png"}
-                    width={32}
-                    height={0}
-                    alt=""
-                    className="img-fluid me-3"
-                  />
-                  {account && account > 0
-                    ? `${account.substring(0, 5)}...${account.substring(38)}`
-                    : "CONNECT"}
-                </button>
-              </div>
-            </Link>
+            <div className="social_icons">
+              <Link href={""} className="link_social">
+                <FaDiscord className="fa_icon" />
+              </Link>
+              <Link href={""} className="link_social">
+                <SiOpensea className="fa_icon" />
+              </Link>
+              <Link href={""} className="link_social">
+                <FaXTwitter className="fa_icon" />
+              </Link>
+            </div>
+            {address === undefined ? (
+              <Link
+                href=""
+                className="nav_link_connect"
+                onClick={() =>
+                  connectMetamask().catch((e) => {
+                    toast.error("User rejected request.");
+                  })
+                }
+              >
+                <div className="btn_connect">
+                  <button>
+                    <Image
+                      src={"./assets/logos_metamask-icon.png"}
+                      width={32}
+                      height={0}
+                      alt=""
+                      className="img-fluid me-3"
+                    />
+                    CONNECT
+                  </button>
+                </div>
+              </Link>
+            ) : (
+              <Link
+                href=""
+                className="nav_link_connect"
+                onClick={() => connectMetamask()}
+              >
+                <div className="btn_connect">
+                  <button>
+                    <Image
+                      src={"./assets/logos_metamask-icon.png"}
+                      width={32}
+                      height={0}
+                      alt=""
+                      className="img-fluid me-3"
+                    />
+                    {address && address > 0
+                      ? `${address.substring(0, 5)}...${address.substring(38)}`
+                      : ""}
+                  </button>
+                </div>
+              </Link>
+            )}
           </ul>
           <label htmlFor="check_btn">
             {toggle === false ? (

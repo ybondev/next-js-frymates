@@ -117,9 +117,57 @@ section {
   margin-right: 0;
 }
 
+.navbar .nav_link_connect {
+  margin-top: 1rem;
+}
+
 .navbar .nav_link_connect .btn_connect {
   width: 100%;
   max-width: 200px;
+}
+
+.navbar .social_icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .social_icons .link_social {
+  margin-right: 1rem;
+}
+
+.navbar .social_icons .link_social .fa_icon {
+  transition: all .3s ease-in-out;
+}
+
+.navbar .social_icons .link_social .fa_icon:hover {
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 992px) {
+  /* NAVBAR */
+  .navbar ul {
+    position: unset;
+    top: unset;
+    right: unset;
+    width: unset;
+    max-width: unset;
+    height: unset;
+    background: unset;
+    display: flex;
+    flex-direction: row;
+    padding-top: unset;
+    line-height: unset;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+  }
+
+  .navbar label {
+    display: none;
+  }
+
+  .navbar .nav_link_connect {
+    margin-top: unset;
+  }
 }
 
 @media screen and (max-width: 427px) {
@@ -322,7 +370,7 @@ input[type="checkbox"]:checked ~ .navbar ul {
 }
 
 .roadmap_section .bx:hover {
-  box-shadow: 0 0 5px var(--accent-color);
+  transform: translateY(-5px);
 }
 
 .roadmap_section .bx h1 {
@@ -391,7 +439,7 @@ input[type="checkbox"]:checked ~ .navbar ul {
 
 .mint_section h1 {
   font-weight: 700;
-  font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem);
+  font-size: clamp(2rem, 1.5385rem + 2.0513vw, 4rem);
 }
 
 .mint_section p {
@@ -429,6 +477,11 @@ input[type="checkbox"]:checked ~ .navbar ul {
   text-transform: uppercase;
 }
 
+.mint_section .right_col {
+  display: flex;
+  justify-content: center;
+}
+
 .mint_section .right_col .img-fluid {
   border-radius: 30px;
 }
@@ -436,26 +489,6 @@ input[type="checkbox"]:checked ~ .navbar ul {
 @media screen and (min-width: 768px) {
   section {
     padding: 100px 0;
-  }
-
-  /* NAVBAR */
-  .navbar ul {
-    position: unset;
-    top: unset;
-    right: unset;
-    width: unset;
-    max-width: unset;
-    height: unset;
-    background: unset;
-    display: flex;
-    flex-direction: row;
-    padding-top: unset;
-    line-height: unset;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .navbar label {
-    display: none;
   }
 
   /* HOME */

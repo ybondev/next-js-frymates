@@ -19,11 +19,11 @@ const RootLayout = ({ children }) => {
         <title>Frymates NFT | Web3 Detective Agency</title>
       </head>
       <body className="main_container">
-        <Nav />
         <ThirdwebProvider
           activeChain="goerli"
           clientId="e887491a6bf2e42ba4a0436a450b1b93"
         >
+          <Nav />
           {children}
           <Toaster />
         </ThirdwebProvider>
