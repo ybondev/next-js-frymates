@@ -11,6 +11,7 @@ import {
   useNetwork,
   ChainId,
 } from "@thirdweb-dev/react";
+import { Web3 } from "web3";
 
 const Mint = () => {
   const address = useAddress();
@@ -38,32 +39,35 @@ const Mint = () => {
   };
 
   const { contract } = useContract(
-    "0x5CF68c7388dA6bcF48886Ea13b51DD7767644402"
+    "0x24305eFFBF3506b826f904C9e0017b9A247f8A97"
   );
 
   const MINT = async () => {
     if (isWrongNetwork) {
-      swtichNetwork && swtichNetwork(ChainId.Goerli);
+      swtichNetwork && swtichNetwork(ChainId.Mainnet);
       return;
     }
 
     setClaiming(true);
     try {
-      const cost = await contract.call("cost");
-      const data = await contract.call(
+      const cost = await contract?.call("cost");
+      const bigwei = BigInt(cost);
+      const wei = (Number(bigwei) / 10 ** 18) * mintAmount;
+      const val = Web3.utils.toWei(wei, "ether");
+      const data = await contract?.call(
         "mint", // Name of your function as it is on the smart contract
         [
           mintAmount, // e.g. Argument 1
         ],
         {
           gasLimit: 3000000, // override default gas limit
-          value: Number(cost) * mintAmount, // send 0.1 ether with the contract call
+          value: val, // send 0.1 ether with the contract call
         }
       );
       toast.success("Minted Successfully!", data);
       setClaiming(false);
     } catch (err) {
-      toast.error("Contract call failure!", err);
+      console.error("Contract call failure!", err);
       setClaiming(false);
     }
   };

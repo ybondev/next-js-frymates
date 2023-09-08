@@ -20,8 +20,8 @@ const RootLayout = ({ children }) => {
       </head>
       <body className="main_container">
         <ThirdwebProvider
-          activeChain="goerli"
-          clientId="e887491a6bf2e42ba4a0436a450b1b93"
+          activeChain="ethereum"
+          clientId="1b7ea9923feb105d323484e3f9467813"
         >
           <Nav />
           {children}
