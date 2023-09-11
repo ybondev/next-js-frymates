@@ -13,10 +13,10 @@ import {
   ConnectWallet,
 } from "@thirdweb-dev/react";
 import { Web3 } from "web3";
+import Loading from "@app/loading";
 
 const Mint = () => {
   const address = useAddress();
-  const connectMetamask = useMetamask();
   const isWrongNetwork = useNetworkMismatch();
   const [, swtichNetwork] = useNetwork();
   const [mintAmount, setMintAmount] = useState(1);
