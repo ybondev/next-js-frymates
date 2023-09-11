@@ -1,19 +1,15 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars, FaDiscord } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 import { SiOpensea } from "react-icons/si";
-import { useAddress, useMetamask } from "@thirdweb-dev/react";
-import { toast } from "react-hot-toast";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [pathname, setPathName] = useState(false);
-  const address = useAddress();
-  const connectMetamask = useMetamask();
 
   const TOGGLE_MENU = () => {
     if (toggle === false) {
@@ -75,53 +71,14 @@ const Nav = () => {
                 <FaXTwitter className="fa_icon" />
               </Link>
             </div>
-            {address === undefined ? (
-              <Link
-                href=""
-                className="nav_link_connect"
-                onClick={() =>
-                  connectMetamask().catch((e) => {
-                    toast.error("User rejected request.");
-                  })
-                }
-              >
-                <div className="btn_connect">
-                  <button>
-                    <Image
-                      src={"./assets/logos_metamask-icon.png"}
-                      width={32}
-                      height={0}
-                      alt=""
-                      className="img-fluid me-3"
-                    />
-                    CONNECT
-                  </button>
-                </div>
-              </Link>
-            ) : (
-              <Link
-                href=""
-                className="nav_link_connect"
-                onClick={() => connectMetamask()}
-              >
-                <div className="btn_connect">
-                  <button>
-                    <Image
-                      src={"./assets/logos_metamask-icon.png"}
-                      width={32}
-                      height={0}
-                      alt=""
-                      className="img-fluid me-3"
-                    />
-                    {address && address > 0
-                      ? `${address.substring(0, 5)}...${address.substring(38)}`
-                      : ""}
-                  </button>
-                </div>
-              </Link>
-            )}
+            <Link
+              href=""
+              className="nav_link_connect"
+            >
+              <ConnectWallet />
+            </Link>
           </ul>
-          <label htmlFor="check_btn">
+          <label htmlFor="check_btn" className="label_icon">
             {toggle === false ? (
               <FaBars onClick={TOGGLE_MENU} className="fa_icon" />
             ) : (
@@ -131,6 +88,11 @@ const Nav = () => {
               />
             )}
           </label>
+          <label
+            htmlFor="check_btn"
+            className="label_overlay"
+            onClick={TOGGLE_MENU}
+          ></label>
         </nav>
       </div>
     </div>

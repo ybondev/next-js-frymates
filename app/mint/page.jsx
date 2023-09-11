@@ -10,6 +10,7 @@ import {
   useNetworkMismatch,
   useNetwork,
   ChainId,
+  ConnectWallet,
 } from "@thirdweb-dev/react";
 import { Web3 } from "web3";
 
@@ -106,9 +107,10 @@ const Mint = () => {
                 <FaPlus className="fa_icon" onClick={incrementMintAmount} />
               </div>
               {address === undefined ? (
-                <button id="mint" onClick={() => connectMetamask()}>
-                  connect
-                </button>
+                // <button id="mint" onClick={() => connectMetamask()}>
+                //   connect
+                // </button>
+                <ConnectWallet />
               ) : (
                 <button
                   id="mint"
