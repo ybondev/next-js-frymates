@@ -527,3 +527,9 @@ input[type="checkbox"]:checked ~ .navbar label.label_overlay {
     flex-direction: row;
   }
 }
+
+@media screen and (max-height: 768px) {
+  .home_section .container .row {
+    margin-top: 50px;
+  }
+}
