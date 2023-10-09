@@ -21,7 +21,7 @@ const RootLayout = ({ children }) => {
       <body className="main_container">
         <ThirdwebProvider
           activeChain="ethereum"
-          clientId="1b7ea9923feb105d323484e3f9467813"
+          clientId={process.env.NEXT_PUBLIC_CLIENT_ID}
         >
           <Nav />
           {children}
